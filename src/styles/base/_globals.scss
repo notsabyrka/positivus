@@ -77,3 +77,8 @@ h4,
 .h4 {
   @include fluid-text(20, 18);
 }
+
+::selection {
+  color: var(--color-dark-alt);
+  background-color: var(--color-accent);
+}
