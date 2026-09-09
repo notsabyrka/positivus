@@ -41,10 +41,25 @@
       padding: 30px;
     }
 
+    &::details-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      content-visibility: hidden;
+      overflow: hidden;
+      transition:
+        grid-template-rows var(--transition-duration) ease,
+        content-visibility var(--transition-duration) allow-discrete;
+    }
+
     &[open] {
       --indicatorVerticalRotate: 0deg;
 
       background-color: var(--color-accent);
+
+      &::details-content {
+        grid-template-rows: 1fr;
+        content-visibility: visible;
+      }
     }
 
     &-header {
@@ -112,6 +127,10 @@
     }
 
     &-body {
+      min-height: 0;
+    }
+
+    &-content {
       margin-top: 30px;
       padding-top: 30px;
       border-top: var(--border);
